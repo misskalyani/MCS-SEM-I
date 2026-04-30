@@ -1,0 +1,214 @@
+3. Employee Database:
+---------------------------------------------------------------------------------------------------------------------------------
+MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE n,r
+match (n) return n
+
+CREATE( m : Employee{Name :"Mahesh"}),( r : Employee{Name :"Rohit"}),( s : Employee{Name :"Sachin"}),( r1 : Employee{Name:"Rahul"}), ( d : Employee {Name :"Deepak"}),( s1 : Employee{Name:"Sarita"}),( a : Employee{Name:"Amruta"})
+return m,r,s,r1,s1,a
+
+CREATE( m : Department {Name:"Marathi"}), ( c : Department{Name:"Computer"}), ( s : Department {Name :"PSychology"}), (c1: Department {Name :"Chemistry"}),( d : Department {Name:"Botany"}),(z: Department {Name :"Zoology"})
+return m,c,c1,s,d,z
+
+CREATE( m: Skillset{Name:"Communication"}), ( c : Skillset{Name:"Decision Making"}), ( s : Skillset{Name :"Time Management"}), (c1: Skillset{Name :"Leadership"}),( d : Skillset {Name:"Adaptability"})
+return m,c,c1,s,d
+
+CREATE( m : Project {Name :"Project1"}),( r : Project {Name :"Project2"}),( s : Project {Name :"Project3"}),( r1 : Project {Name :"Project4"}), ( d : Project {Name :"Project5"})
+return m,r,s,r1,d
+
+RelationShip  1)Works_in
+MATCH (a:Employee),(b:Department)
+WHERE a.Name="Mahesh" AND b.Name = "Marathi"
+CREATE (a)-[r:Works_in]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Department)
+WHERE a.Name="Rohit" AND b.Name = "Zoology"
+CREATE (a)-[r:Works_in]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Department)
+WHERE a.Name="Sachin" AND b.Name = "Computer"
+CREATE (a)-[r:Works_in]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Department)
+WHERE a.Name="Rahul" AND b.Name = "PSychology"
+CREATE (a)-[r:Works_in]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Department)
+WHERE a.Name="Deepak" AND b.Name = "Chemistry"
+CREATE (a)-[r:Works_in]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Department)
+WHERE a.Name="Amruta" AND b.Name = "PSychology"
+CREATE (a)-[r:Works_in]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Department)
+WHERE a.Name="Sarita" AND b.Name = "Botany"
+CREATE (a)-[r:Works_in]->(b)
+RETURN a, b
+
+RelationShip  2)Has_acquired
+MATCH (a:Employee),(b:Skillset)
+WHERE a.Name="Mahesh" AND b.Name = "Leadership"
+CREATE (a)-[r:Has_acq]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Skillset)
+WHERE a.Name="Rohit" AND b.Name = "Time Management"
+CREATE (a)-[r:Has_acq]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Skillset)
+WHERE a.Name="Sachin" AND b.Name = "Decision Making"
+CREATE (a)-[r:Has_acq]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Skillset)
+WHERE a.Name="Rahul" AND b.Name = "Leadership"
+CREATE (a)-[r:Has_acq]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Skillset)
+WHERE a.Name="Deepak" AND b.Name = "Adaptability"
+CREATE (a)-[r:Has_acq]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Skillset)
+WHERE a.Name="Amruta" AND b.Name = "Adaptability"
+CREATE (a)-[r:Has_acq]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Skillset)
+WHERE a.Name="Sarita" AND b.Name = "Communication"
+CREATE (a)-[r:Has_acq]->(b)
+RETURN a, b
+
+RelationShip  3)Assigned_to
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Mahesh" AND b.Name = "Project4"
+CREATE (a)-[r:Assigned_to]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Rohit" AND b.Name = "Project2"
+CREATE (a)-[r:Assigned_to]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Sachin" AND b.Name ="Project3"
+CREATE (a)-[r:Assigned_to]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Rahul" AND b.Name = "Project5"
+CREATE (a)-[r:Assigned_to]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Deepak" AND b.Name = "Project3"
+CREATE (a)-[r:Assigned_to]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Amruta" AND b.Name = "Project1"
+CREATE (a)-[r:Assigned_to]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Sarita" AND b.Name = "Project2"
+CREATE (a)-[r:Assigned_to]->(b)
+RETURN a, b
+
+RelationShip  4)Controlled_by
+MATCH (a:Project),(b:Department)
+WHERE a.Name="Project2" AND b.Name = "Botany"
+CREATE (a)-[r:Controlled_by]->(b)
+RETURN a, b
+
+MATCH (a:Project),(b:Department)
+WHERE a.Name="Project3" AND b.Name = "Computer"
+CREATE (a)-[r:Controlled_by]->(b)
+RETURN a, b
+
+MATCH (a:Project),(b:Department)
+WHERE a.Name="Project4" AND b.Name = "Marathi"
+CREATE (a)-[r:Controlled_by]->(b)
+RETURN a, b
+
+MATCH (a:Project),(b:Department)
+WHERE a.Name="Project5" AND b.Name = "Computer"
+CREATE (a)-[r:Controlled_by]->(b)
+RETURN a, b
+
+MATCH (a:Project),(b:Department)
+WHERE a.Name="Project1" AND b.Name = "PSychology"
+CREATE (a)-[r:Controlled_by]->(b)
+RETURN a, b
+
+RelationShip 5)Project_manager
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Rohit" AND b.Name = "Project1"
+CREATE (a)-[r:Project_manager]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Rahul" AND b.Name = "Project2"
+CREATE (a)-[r:Project_manager]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Sachin" AND b.Name = "Project3"
+CREATE (a)-[r:Project_manager]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Deepak" AND b.Name = "Project4"
+CREATE (a)-[r:Project_manager]->(b)
+RETURN a, b
+
+MATCH (a:Employee),(b:Project)
+WHERE a.Name="Mahesh" AND b.Name = "Project5"
+CREATE (a)-[r:Project_manager]->(b)
+RETURN a, b
+
+Queris-
+1) List the names of employees in department “......PSychology..”
+-->
+MATCH (a:Employee)-[w:Works_in]->(b:Department)
+WHERE b.Name="PSychology"
+RETURN a.Name
+o/p-->
+a.Name
+Amruta
+Rahul
+
+2) List the projects along with their properties, controlled by department
+“..Botany....”
+-->MATCH (p:Project) -[c:Controlled_by]->(b:Department)
+WHERE b.Name="Botany"
+ RETURN p
+
+3)List the departments along with the count of employees in it
+-->MATCH (a:Employee)-[r:Works_in]->(b:Department)
+RETURN  b.Name, count(a) as count
+o/p-->
+b.Name	count
+Marathi	1
+PSychology	2
+Zoology	1
+Botany	1
+Computer	1
+Chemistry	1
+
+4)List the skillset for an employee “...Amruta....”
+-->MATCH (a:Employee)-[r:Has_acq]->(b:Skillset)
+WHERE a.Name="Amruta"
+RETURN b.Name
+o/p-->
+b.Name
+Adaptability
+											

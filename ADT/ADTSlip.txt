@@ -1,0 +1,57 @@
+SLIP 1
+
+
+Q.1) Create an Employee collection with mentioned fields     
+Employee (eno,ename,salary,desig,dept:{deptno,deptname,location}, project: {pname,hrs})          
+
+1. Insert 5 documents in Employee collection.           [5]                
+2. Display all the documents from Employee collection.  [3] 
+3. Display all the documents from Employee collection.  [3] 
+4. Display all employees whose name starts with “S”.      [4]
+
+show dbs
+
+use emps
+
+1) db.emps.insertOne({'eno':'1','ename':'om','salary':'50000','desig':'development',dept:{'deptno':'101','dname':'computer','location':'pune',project:{'pname':'google','hrs':'30'}}});
+
+2) db.emps.find()
+3) db.emps.find().pretty()
+   db.emps.find({})
+
+4) db.emps.find({ename:/^s/})
+
+
+SLIP 2
+
+
+Q.1) Create an Employee collection with mentioned fields     
+Employee (eno,ename,salary,desig,dept:{deptno,deptname,location}, 
+project: {pname,hrs})          
+1. Insert 5 documents in Employee collection.   [5]                              
+2. Display all Employee with the designation “Manager”.  [3]              
+3. Display all employees with salary >50000 and salary <80000.  [3] 
+4. Update no. of hrs to 7 for pname=______.     [4]
+
+2) db.emps.find({'desig':'manager'})
+
+3) db.emps.find({'salary':{$gt:'50000',$lt:'80000'}})
+
+4)db.emps.update({"dept.project.pname":"google"},{$set : {"dept.project.hrs":'7'}})   
+
+
+SLIP 9
+
+Q.1) Model the following system as a document database.                                          
+Consider a database of newspaper, publisher, and city. 
+1. Insert at least 5 documents in each collection. [4] 
+2. List all newspapers available “NASHIK” city [4] 
+3. List all the newspaper of “Marathi” language [4] 
+4. Count no. of publishers of “Gujrat” state .  [3]
+
+1)db.newspaper.insertOne({'no':'1','lang':'marathi',publisher:{'pno':'1','pname':'om',city:{'cname':'nashik'}}})
+
+2)db.newspaper.find({'publisher.city.cname':'nashik'})
+
+3)db.newspaper.find({'lang':'marathi'})
+

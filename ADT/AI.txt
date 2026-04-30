@@ -1,0 +1,1281 @@
+*3 Define forward and backward chaining
+->forward-is a reasoning process that starts with known facts and applies rules to deduce new facts
+	  data driven approach
+	  starts from initial facts
+	  moves forward
+  backward-starts with a goal and works backward to find the facts that support it
+	  goal driven approach
+	  starts from goal state
+          moves backward 
+*4 what are events
+->is a set of outcomes of a random experiment
+*6 what is NLP
+->natural language processing
+  nlp subfield of AI that deals with interaction between computers and humans in natural language
+  nlp is a branch of ai that enables computers to understand and generate human lang in a meaningful way
+  it combines comp science to allow to process spoken and written lang for tasks like lang translation,sentiment analysis,speech recognition and question answering
+
+	4M
+*7 explain AO* Algorithm with example
+->A* with multiple goals
+  is a search algo 
+  used to find the shortest path to multiple goals
+  And-Or-star algo used in AI for solving problems 
+  it is used for problem reduction,where complex problems are break down into smaller subproblems
+  AO* represented as AND-OR graph
+  AND NODE - require all child node to be solved to achieve the parent goal
+  OR NODEs - require only one of the child nodes to be solved to achieve the parent goal
+  heuristic function - guides the search by estimating the cost to reach the goal from a given node
+  eg.buying a car
+  consider the goal of buying a car represented in an AND-OR graph
+  goal - G=buy a car
+  option 1 (OR) - steal the car(low cost)
+  option 2 (OR) - earn money AND buy the car
+  earn money can be an AND node itself(eg get a job AND save money)
+  the AO* algo evaluates the cost
+*8 translate following English statement into FOL(first-order-logic)
+->fol is a formal system for expressing and reasoning about logical stmts
+  I)All birds fly
+->ulta Ax(Bird(x) => Files(x))
+  II)Every man respects his parent
+->ulta Ax(Man(x) => Respects(x,Parent(x)))
+*9 write state space representation of monkey-banana-problem also specify intial final state and list operator or rules
+->A classic program in AI problem,where a monkey in a room trying to reach a bananas hanging out of reach.A box is available to help
+  State Space Representation - a state can be represented as a tuple or structure
+  state(MonkyHorizontalPos,MonkyVerticalPos,BoxHorizontalPos,hasbananastatus)
+  monkyHP:{atdoor,atwindow,middle,underbananas}
+  monkyvp:{onfloor,onbox}
+  boxhp:{atdoor,atwindow,middle,underbananas}
+  hasbs:{hasnot,has}
+  Intial State- state(atdoor,onfloor,atwindow,hasnot)
+  final state- state(onbox,underbananas,has)the monkey has the banana
+  operators(rules)-move,climb,push
+  move(p1,p2) - monkey moves fom position p1 to p2 on the floor
+  climb(p) - monkey climbs onto the box at position p
+  push(p1,p2) - monkey pushes the box from p1 to p2 ( monkey must be on the floor at p1)
+*10 Write a python program to find factorial of a given number 
+   def fact(n):
+   	if n < 0 :
+		return "Invalid Number"
+        elif n==0 :
+                return 1
+	else :
+		f=1
+		for i in range(1,n+1) :
+			f=f*i
+        	print("factorial of the num is = ",f)
+   n=5
+   fact(n)
+*11 what is partially observable game? give its example
+-> a game where the agent does not have complete knowledge/info of the game state
+   players can only observe a part of the game state and must make decisions based on this limited info 
+  eg.poker,where players do not know each others hands
+*12 explain minmax procedure with example
+-> it is a decision making algo used in game theory to minimize the maximum potential loss
+   is a decision making algo used in game theory and AI for two player such as chess,tic tac toe 
+   the procedure works recursively
+   max player - tries to maximize their score
+   min player - tries to minimize the max players score
+   procedure 
+   1. generate the entire game tree down to the terminal state(game over)
+   2. assign scores to the terminal states
+   3. back the scores up the tree
+   4. select the moves at the current state
+   eg.tic tac toe
+   in tic tac toe ,terminal state are evaluated as +1 for a win,-1 for a loss,and 0 for a draw
+   the max player chooses moves that lead nodes with higher values 
+   while the min player chooses moves leading to lower values
+   the algo used for the best possible outcome
+*13 explain generate and test algorithm
+-> is a simple algo that generates possible solutions and tests them to find the correct one
+   is a simple problem solving method in AI
+   it is non informed search technique
+   algo steps
+   generate - generate possible solution
+   test - test possible solution 
+   loop - if the solution is not found then repeat steps until solution found
+   eg.
+   to open a combination lock the algo generates every possible number sequence tests each one on the lock unitil it opens
+*15 what are the application of NLP
+-> sentiment analysis - determine the emotional tone eg customer review
+   language translation 
+   text summarization - automatically genete summaries of longer documents
+   chatboots
+   machine translation - automatically translating text from one lang to another eg google translate
+   spam filtering - analysing email content to classify msgs as spam or not
+   smart assistants - powering virtual assistanats
+   question answering systems 
+*16 give the state space representation of "water jug problem" where there are 2 jugs of 4L and 3L respectively we want 2L water in 4L jug
+-> we have two jugs,a 4L(jug A), a 3L(jug B)
+   state space representation - (A,B)
+				where A is the amount of water in 4L
+				B is the amount of water in the 3L
+   initial state - (0,0)
+		   both jugs are empty
+   final state - (2,)
+   operator(rules) - fill,pour,empty
+   fillA :(A,B) ->(4,B) (fill the 4L jug)
+   fillB :(A,B) ->(A,3) (fill the 3L jug)
+   emptyA:(A,B) ->(0,B) (empty the 4L jug)
+   emptyB:(A,B) ->(A,0) (empty the 3L jug)
+   pourAtoB
+   pourBtoA
+*17 list the criteria to measure the performance of different search stratergies
+-> completeness - is the algo to find a solution if one exists
+   optimality - is the algo to find the best solution if multiple solution exists
+   time complexity - how much time does the algo take to run
+   space complexity - how much memory does the algo require    
+
+*19 what is difference between artificial intelligence and natural intelligeance
+-> AI- refers to artificial intelligence
+       created by humans(machines,comp)
+       artificial,man-made in nature
+       high speed complex calculations
+       learns through datasets
+       rule based reasoning
+   NI- refers to natural intelligence which is the intelligence exhibited by humans and animals
+       created by nature
+       natural in nature
+       low speed complex calculations
+       learns through environment
+       creative reasoning
+*20 write a python program display any four list operation
+->fruits=[1,2,3,4,5]
+  append -add an element at the last of the list
+  fruits.append(6)
+  print("after append =",fruits)
+  remove -remove a specific element by value
+  fruits.remove(3)
+  print("after remove =",fruits)
+  sort - sort the list by alphabetical/numerical order
+  fruits.sort()
+  print("after sort =",fruits)
+  reverse - reverse the order of of elements
+  fruits.reverse()
+  print("after reverse =",fruits)
+*21 write a python program to print multiplication table for given number
+-> def print(num)
+   	print("multiplication = ")
+        for i in range(1,11):
+		r=num*i
+		print(i "X" num "=" r)
+   num =3
+   print(num)
+*22 what is hill climbing write algorithm for it
+-> a simple optimization algo that iteratively moves to the best neighboring solution
+   is used for optimization problems
+   it is informed search
+   it is greedy approach
+   it starts with initial state and iteratively moves to a neighbouring state with a better value
+   algo
+   1.initialize the current state as the starting point
+   2.loop - 
+      1.evaluate all neighboring states of the current state.
+      2.select the neighbour that provides the best value
+      3.if the selected neighbour is better than the current state, move to that neighbour and set it as the new current state
+      4.else(no neighbour is better) stop the loop.the current state is a local optimum
+*24 use the minimax algorithm to compute the minimax value at each node for the game tree below
+                      A				max
+           D          C         B		min
+        M  E  F    G  H  I   J  K  L 
+    0   3  12 8    2  4  6   14 5  2
+-> 1.nodes D,C,B (Min level)-
+     this nodes are first min level from the bottom
+     D:min(0,3,12,8) = 0
+     C:min(2,4,6)    = 2
+     B:min(14,5,2)   = 2
+   2.node A (max level) -
+     this is the root node (max level),
+     which chooses the maximum value from its children (D,C,B)
+     A:max(value of D,value of C, value of B)=max(0,2,2)=2
+   the minimax value for each node is as follows :
+   node D :0
+   node C :2
+   node B :2
+   node A :2
+   the minimax value for the max node is 2 
+
+ • Use the Minimax algorithm to compute the minimax value at each node for the game tree below									
+     max		      A
+     min	    B			c
+     max	D	E	   F	    G
+	      3   5   6   9      1   2    0  -1
+	 1.node D,B,F,E(max level):
+	   D:max(3,5) = 5
+	   E:max(6,9) = 9
+ 	   F:max(1,2) = 2
+	   G:max(0,-1)= 0
+	 2.node B,C(min level) :
+	   B:min(value of D,value of E) = 5
+	   C:min(value of F,value of G) = 0
+	 3.node A (max level) =
+	   A:max(value of B,value of C) = 5 
+	   the minimax value for the each node as follows :
+	   node D:5
+           node E:9
+           node F:2
+           node G:0
+           node B:5
+           node C:0
+           node A:5
+           the minimax value for the max node is 5
+
+			NOTES
+    
+    • What is equality? 
+	is the state of beign equail in particular status
+        in mathematic and logic it refers to a relationship between two expressions that have the same value
+        eg == operator
+    • What is N-gram? 
+	is a continuos sequence of n items(words,symbols,letters)from a given sample 
+        n-gram models are used in nlp
+        to predict the next item in sequence based 
+        useful in speech recognition,machine translation,spelling correction
+    • What are Limitations of LLM? 	 
+	LLM - limitations of large language models
+	lack of true reasoning
+	bias and fairness
+        black box problem
+	computational intensity
+	prone to factual errors
+    • What is sentiment  Analysis?
+ 	is an nlp technique used o determine whether a piece of text is positive ,negative,neutral
+	it involves identifying ,extracting information
+    • What is State-Space Search? 
+	is a problem solving approach in ai where the problem is represented as a set of possible states and the goal is to find a path from an intial state to goal state
+        is represented as a tree or graph 
+    • State any two approaches to knowledge representation.
+	logical representation - uses logic(like propositional or first order logic)store knowledge in a clear manner.eg using if then stmts
+	semantic network - represents knowledge in a graph format where nodes represents objects ,entities and edges represent the relationship between them  	 	 	  	 
+    • What are the application of classical Planning? 	
+         robotics - planning the sequence of actions and paths
+	 logistics and supply chain management - improve efficiency
+	 automated scheduling - allocating resources 
+         space missions - developing satelites
+         game AI - 
+         problem solving
+    • Differentiate between propositional logic and first-oreder logic? Write the State less desirable properties of knowledge. 
+	 propositional logic - propositions (atomic stmts)
+			       limited true or false stmts
+			       eg.p(it is raining)
+         first order logic   - predict constants,variables
+                               represent realtionships
+                               eats(x,y)(everyone eats anything)
+	 properties :
+	 complexity : developing effective knowledge representation
+	 scalability: 
+         lac of common sense
+         inaccuracies
+         ambiguity
+    • Explain Hierarchical Planning in Autonomous Driving.
+	 hierarchical planning breaks down the complex task of autonomous driving into a series of smaller
+	 high level plan
+         intermediate level plan
+         low level plan
+    • What is Neural Language Models?
+	 a nlm  is a type of language model that uses artificial neural networks to learn the statistical properties
+         language modelling task
+	 neural networks
+         distributed representation
+	 contextual understanding
+         machine translation
+	 text generation
+	 speech recognition
+	 sentiment analysis
+	 autocorrect
+    • What is an Information Retrieval(IR) Model? 
+	an IR is a mathematical framework or a set of processes that defines how documents and queries are represent 
+        retrive info from large collection 
+        eg.boolean model
+    • What are the Application of Reinforcement Learning in Robotics? 	 
+	learning locomotion - teaching robots to walk,run
+        text execution      - training robots to perform task
+        human-robot interaction - robots interact humans 
+    • Define constraint satisfaction problem. Solve SEND+MORE=MONEY  Using constraint satisfaction problem 	
+	csp are mathematical questins defined as a set of objects whose state must statisfy a no.of constraints or limitations
+	solving SEND+MORE=MONEY using csp
+        variables : S,E,N,D,M.O,R,Y
+        domains   : {0,1,2,3,4,5,6,7,8,9,} for each variable
+	constraits: 
+        1.all lettrs must have unique digit
+        2.S and M cannot be 0
+	3.the arithmetic must hold true:
+	 SEND+MORE=MONEY
+        we use backtracking search constraint 
+        the unique solution is found :
+	S=9,E=5,N=6,D=7,M=1,O=0,R=8,Y=2
+        9567+1085=10652 	 	 	          	 	
+    • What is Goal-based planning? 
+	GBP is an ai approach where an agent forms a sequence of actions to achieve the goals	 	 	 	 	 	 	
+    • Write any four applications of AI .  
+	healthcare - xrays,mris
+        autonomous vehicles - self driving cars
+	customer service - chatboots
+	finance - detecting fraud transcation	 	 	 	 	 	        
+    • What is environment? Types of environment. 
+	the external world that the agent interacts with
+	types :
+	fully observable vs.partially observable :
+	an environment is fully observable if the agent sensors give it acees to the complete state of the environment at all times
+	static vs.dynamic : 
+	a static environment does not change 
+	a dynamic agent is acting
+	discrete vs.continuous :
+	the no. of possible states is finite in a discrete environment
+	in a continuous values are infinite
+	deterministic vs.stochastic : 
+	deterministic environment is completely determined by the current state and the agents action
+	in a stochastic environment there is an element of chance             
+    • Write a Python program Accept the number and check it prime or not.
+	def prime(n):
+		if n<=1 :
+			return false
+		for i in range(2,100):
+			if n% i==0:
+				return false
+		return true
+	n=2
+	if prime(n)
+		print("number is prime")
+	else
+		print("number is not prime")          	 
+    • Conversion of Facts into FOL 	 	 	 	 	 	 
+        ◦ i.John likes all kind of food.
+	   ulta A x
+        ◦ ii.Apple and vegetable are food 
+        ◦ Iii.Anything anyone eats and not killed is food. 
+        ◦ iv.Anil eats peanuts and still alive 
+        ◦  V.Harry eats everything that Anil eats.
+        ◦ Prove by resolution that: vi. John likes peanuts.  	 	                                                                                                                                                                                                                                                                              
+    • What is difference between append () and extend () python methods?        
+        append()-adds a single element to the end of the list       
+   	         accepts a single element of any data type
+		 increases the list length by exactly one
+	extend()-adds each element from an iterable to the end of the list
+	         requires an iterable as an argument
+                 increases the list length by the no.of elements in the iterable argument
+				
+				DT
+2 what is mongoDB
+-> a popular NOSQL database that stores data in a JSON like format
+  mmongodb is a popular open source NoSQL document db program
+  it uses json like documents with optional schemas
+  mongodb is a cross platform,document oriented db thatprovide high performance
+10 explain features of mongoDB
+-> flexible schema - stores data in flexible,like json bson format
+   scalable 
+   high performance - supports data models 
+   easy data retrieval
+   high availability - provides replication
+   sharding - spiliting a single database into smaller
+5 what is CRUD operation
+-> create,read,update,delete operations that can be performed on data in a database
+12 list some of the popular graph database
+-> graph db is a database that store data as nodes and edges such as Neo4j and amazon Neptune
+   neo4j - a highly popular native graph db
+   amazon Neptune - a fully managed graph db
+   arangoDB - a multimodel db that supports graph,document,key-value data
+   orientDB - a multimodel db with strong graph capability
+15 explain peer to peer replication
+-> method of data replication where data is replicated between nodes 
+   in a network without a central server
+   also known as multi master replication
+   this differ from single- master replication
+   data changes can originate at any peer
+17 NoSQL databse are schemaless comment
+-> NoSQL database do not require a predefind schema allowing for flexible data modelling
+   no need to predefine the schema in the db before inserting the data
+   different documents within the same collection can have different fields and structure
+11 explain the features of bootstrap
+-> responsive design /grid system - provide mobile flexbox grid for building layouts
+   pre-built UI components - ready to use components like buttons ,navigation bars,cards,forms
+   css utility classes- a vast collection of utility classes for applying styles like spacing,color
+   extensive documentation - well organized documentation
+13 list some benefits of using bootstrap
+-> rapid development - provides pre-written code,components,front-end development
+   responsive design - built with a mobile first approach
+   consistency - standardized component
+   browser compatibility - handles many cross browser
+6 what is a bootstrap container
+-> a container is a basic building block of the bootstrap grid system
+  it is a fundamental layout component
+  it serves as the most basic layout element
+  it is required when using the default grid system
+  containers two main types:
+  .container - sets a responsive,fixed width
+  .container-fluid - always 100%
+3 explain any two ways to include bootstrap in your project
+-> bootstrap can be included in a project using a CDN or by downloading the files locally
+  using a content delivery network(CDN) -
+  link directly to bootstrap compiled css and js files hosted online
+  this requires no download and is typically the quickest way to get started
+  downloading the files -
+  download the compiled css and js files from the official bootstrap website and
+  host them locally within your project directory
+16 explain bootstrap grid system
+-> a grid system that allows for responsive design and layout
+   is a layout utility built with flexbox 
+   it uses a containers,rows,colms,align
+   the core principle is row is divided into 12 colms which can be used indivisually 
+   provides a responsive way to layout content using rows and colms 
+4 how to include CSS in the webpage
+-> css can be included in a wbpage using the 3 ways
+  external stylesheets - linking a seprate .css file using the <link> tag within 
+			 the <head> section of the html document
+			 eg.<link rel="stylesheet" href="styles.css">
+  internal css - placing css rules within a <style> tag in the <head> 
+		 section of the html document
+  inline css - applying styles directly to individual html elements using the 
+	       style attribute
+               eg.<p style="color:blue;">  
+14 explain basic components of a CSS3 transition
+-> a transition is a way to control the speed and timing of CSS property changes
+   transition-property:specifies the css property the transition effect eg.color,capacity,transform
+   transition-duration:defines how many seconds the transition takes to complete
+   transition-timing  :specifies the speed curve of the transition eg. ease,ease-in,linear
+   transition-dealy   :defines when the transition will start 
+18 how do you make images responsive
+-> images that can be resized and adapted to different screen sizes and devices
+   using css max-width : the most common technique is setting img {max-width:100%;height:auto;}.
+   using html srcset attribute : this attribute allows multiple images files for different scrren
+19 create an emp collection with mentioned fields 
+ emp(eno,ename,salary,desig,dept,:{deptno,deptname,location},roject:{pname,hrs})
+ 	I)display all employee with salary>50000 and salary<80000
+	II)Update no.of hrs to 7 forpname
+-> db.createCollection("emp")
+   db.emp.insertOne({eno:1,ename:"johnDoe",
+		     salary:60000,desig:"software",
+	             dept:{deptno:10,deptname:"IT",
+                     location:"new york"},project:
+                     {pname:"ppl",hrs:5}})
+   db.emp.find({salary:{$gt:50000,$lt:80000}})
+   db.emp.updateMany({"project.pname":"ppl"},{$set:{"project.hrs":7}})
+
+					NOTES
+• Bootstrap
+  bootstrap is a free open source frontend framework  
+  provides prebuilt html css js component for building mobile websites
+• Jumbotron in Bootstrap 
+  jumbtron- is a bootstrap component that highlights key content or info
+• bootstrap advanced component
+  navigation bars - placed at the top of the webpage 
+		    use for display menu,links,forms
+  alerts          - to provide user feedback
+	            display user friendly msgs
+  modals - a popup window commonly used for login fors,sign-up 
+           or display additional info
+  button group    - joins multiple elements
+  cards           - images,headers,footers
+  Accordion       - used for FAQ or detailed info
+  carousel        - display slideshow of imgs or content
+  dropdown        - creates a menu of actions,links,or forms
+  list groups     - displaying a series of component
+  jumbtron- is a bootstrap component that highlights key content or info
+  • benefits of using Bootstrap 
+  faster development - bootstrap provides a set of prebuilt 
+                       components(buttons,forms,navigation bars)
+  responsive and mobile first design - the framework is built with a mobile
+                       first approach flexible grid system that automatically adjusts 
+                       layouts to fit various scrren sizes 
+  consistency - maintain look.standarized stlyes and components
+  ease of use - the developer with basic knowledge of html and css 
+                quickly learn and start using bootstrap
+  extensive documentation and community supports - the framework has well 
+                maintained official documentation
+  customization - provide default styles,bootstrap is highly customizable
+  browser compatibility - websites built with bootstrap are compatible 
+                 with all web broswsers firefox,chrome,google,safari,edge
+• 2D and 3D transformation in CSS3 
+  2D - 2D transforms elements into 2 dimensional plane using x(horizontal) and y (vertical) axes
+  translate(x,y):moves an element from its original postion to x and y distance
+  rotate(angle):rotate an element clockwise around its origin by a given angle
+  scale(x,y):increase or decrease the size of an elementwith width x or height y
+  skew(ax,ay)
+  matrix():combines all 2D transform functions into a single function
+  3D - 3D transforms elements into 2 dimensional plane 
+  rotateX(angle):rotates an element around its horizontal x axis
+  rotateY(angle):rotates an element around its vertical Y axis
+  rotateZ(angle):rotates an element around its Z axis which is bperpendicular to screen
+  translate(z)  :moves an element along the Z axis
+  scale3d(x,y,z):scales an element in all 3 dimensions
+  transform_style
+  backface-visbilityhides the back face of an element
+• Master-Slave Replication 
+  is a technique where data is replicated from a primay node(master) 
+  to one or more secondary nodes(slaves)
+• column family database 
+  stores data in colms in the form of rows ,optimized for queyring large datasets
+• Document Database Use cases 
+  content management systems - articles,blogs,posts,user comments,media
+  e-commerce product catalogs - book,tv screen
+  user profiles and personalization - social networks,gaming manage user profiles
+  internet of things and sensor data - 
+  mobile and web application
+• Peer to Peer Replication 
+  allows multiple nodes to accept writes and replcate data with each other
+• NOSQL databases. 
+  NoSQL databases offer flexible schema deigns and scalability
+• Cypher - is the quey language ued in neo4j to query and manipulate graph data
+• Replica - a replica is a copy of a database or a subset of its data
+            stored on a single node distributed database system
+            the process of creating and maintaining this copies is called replication
+• feature of Distributed Database. 
+  scalability
+  high availability and fault tolerance
+  performance and reduced latency
+  data transparency
+  distributed query and transaction processing
+  modularity and flexibility
+  replication
+  sharding
+• Class 
+  a class is a blueprint or template for creating objects 
+  it defines the structure
+• ID 
+  an id(identifier) is a unique value assigned to each record,row or object
+  within a database
+• Collection 
+  is a group of mongodb document
+  it is an equivalent to rdbms table
+  a collection exists with in a single db
+  
+ 	
+			PPL
+1 what is "this" keyword in java
+->refers to the current object of the class
+  differentiate between global and local variables that have same name
+  invoking the current class constructor
+  invoking the current class method
+4 what is an associative array.
+-> is a data structure that stores key-value pairs
+  also known as dictionary,hash table or map
+  associative arrays unique keys of various types to access their 
+  corresponding values
+6 what is subroutine calling sequence
+->a subroutine calling sequence refers to the specific set of steps
+  refers to the order in which subroutines are called and returned from
+  passing arguments to the subroutine
+  saving the current state
+  allocating memory
+  transferring control
+  restoring the previous state
+7 what is difference between discrete and scalar types
+->discrete types - are types have a finite set of distinct values
+                  values are distinct and countable
+  scalar types - are types that have a single value
+                 single component data values 
+8 what is dynamic memory location
+-> is a technique where memory is allocated and deallocated at runtime
+   is the process of allocating memory space during runtime
+   to manage data structure
+9 explain different time at which binding decision are made
+-> process of linking a variable or identifier to its definition or value
+   compile time -static binding
+                 decisions made by the compiler before the programs runs
+   link time -decisions made by the linker when combining different
+              compiled libraries into a single executable program
+   load time -decision made by the os loader when the program is
+              loaded into main memory for execution
+   run time - dynamic binding
+              late binding
+              decisions postponded until the program is actually running 
+10 explain different types of operator available in C
+-> arithmetic - perform basic mathematical operation
+                + addition,-subtraction,*multiplication,
+                /division ,% modulus divison
+  relational  - used for comparison and return Boolean value(T/F)
+                == equal to,!= not equal to,>greater than,
+                <less than,>= greater than or equal to
+                <= less than or equal to
+  logical     - combine two or more conditions 
+                && logical AND-true if both operands are true
+                || logical OR -true if at least one operand is T
+                ! logical NOt - reverse the logical state 
+  bitwise     - perform operations at the bit level
+                & bitwise AND,| bitwise OR,~ bitwise NOT
+                << left shift,>>right shift
+ assignment   - assign values to variables
+                ==
+ increment decrement - increase or decrease a variables value by 1
+                ++ increment,--decrement,++a prefix,a++ postfix
+ conditional  - if else 
+11 what is dangling reference ?how to avoid dangling reference problem
+-> dangling reference occurs when a pointer points 
+   to memory that has been deallocated or reused
+   access or modify memory through dangling pointer
+   deallocation of memory
+   returning address of local variables
+   variable going to out of scope
+   avoid-
+   set pointers to NULL after freeing memory
+   avoid returning addresses of local variables
+   limit pointer scope
+   use memory debugging tools
+12 give the syntax and use of following function
+I)getchar
+-> reads a character from standard input
+   syntax - char var=getchar()
+I)putchar
+-> writes a character to standard output
+   syntax - putchar(char variable)
+13 why are there so many programming languages
+-> bcoz different languages are suited for different tasks 
+   each language has its own strengths and weaknesses
+   languages support different ways of thinking about problems
+   such as object-oriented,functional,or procedural language
+15 explain heap based allocation
+-> heap based allocation is a memory management technique where 
+   memory is allocated and deallocated from a heap data structure
+   memory is allocated from the heap during the program execution
+   heap allocation dynamically program execution
+   work :
+   dynamic allocation
+   runtime management
+   manual or automatic deallocation
+16 explain any two parameter passing modes with suitable example
+-> call by value - a copy of the actual arguments value is passed
+                   to the function parameter
+                   changes made to the parameter inside the function
+                   do not affect the original variable in the calling code
+                   this method prevents modification of the original data
+                   eg
+                     #include<stdio.h>
+                     void increment(int x)
+                     {
+			x=x+1;
+                        printf("inside the function x = %d ",x);
+		     }
+                     int main()
+                     {
+			int num=10;
+                        printf("before function call num=%d",num);
+                        increment(num);
+                        printf("after function call num=%d",num);
+		     }
+   call by reference - a reference to the original argument is passed to the function
+                   it avoids the creating copy
+                   changes made to the parameter inside the function
+                   do affect the original variable in the calling code
+                   eg #include<stdio.h>
+                     void increment(int *x)
+                     {
+			*x=*x+1;
+                        printf("inside the function *x = %d ",*x);
+		     }
+                     int main()
+                     {
+			int num=10;
+                        printf("before function call num=%d",num);
+                        increment(num);
+                        printf("after function call num=%d",num);
+		     }
+
+   call by name 
+17 explain two techniques of garbage collection
+-> is a memory management technique that automatically frees memory 
+   occupied by objects that are no longer referenced
+   reference counting -
+   this technique adds a counter to each heap allocated object
+   to track the no. of pointers reffering to it
+   the counter is incremented when a new pointer references the object
+   decremented when a pointer stops referencing it
+   mark and sweep -
+   this is a batch oriented technique that runs when available free space
+   it operates in two phases the mark phase identifies all objects and
+   the sweep phase iterates through heap
+   this approach can cause to pause during collection but can handle
+   cyclic data structure correctly   
+19 what is nesting of classes in java explain with suitable example 6-5
+   nesting of classes in java refers to defining a class within another class
+   they can access only static member of the outer class
+   inner class have access all members
+   static nested class are like regular top level class 
+   nesting class divided into 2 categories :
+       non static nested classes
+       static nested classes
+   eg
+   public class outerClass
+   {
+        public static class nested
+        {
+             public void disp()
+             {
+	         sop("msg");
+             }
+        }
+        public class innerClass
+        {
+             public void disp()
+             {
+	         sop("msg");
+             }
+        }
+   }
+   pvsm(string a[])
+   {
+   	outerClass.nested obj = new outerClass.nested();
+        obj.disp();
+
+        outerClass outerobj = new outeClass();
+        outerClass.innerClass innerobj = outerobj.new innerClass();
+        innerobj.disp();
+   }				NOTES
+    
+19. Dataflow language provide inherently parallel model justify true or false
+    TRUE
+    in a dataflow lang an instruction executed as its required 
+    input data become avialable sequentially program counter
+    multiple instructions executed simultaneously      
+20. List any 2 function of c pre-processor
+    file inclusion - it handles directives like #include
+                     replace directive with the special content,source file
+    macro expansion - it replaces macro names defined with #define with
+                     their corresponding values before the main compilation
+21. What is binding time
+    binding time is a point in the program execution life cycle when a 
+    name,data,enitity associated with their property    
+    binding time is a range from lang design time to compile time,
+    load time,runtime.
+24. What is memorization
+    to speed up computer programs
+    to manage storage
+    it is optimization technique used to speed up comp programs
+25. What is heap dynamic array
+    it is an array whose storage is allocated on the heap at runtime.
+    its size not fixed at compile time.
+    it can changed and modified during program execution.
+    in lang like c++ this is managed using pointers and dynamic 
+    memory allocation functions
+28. Define polymorphism with example6-13
+    many forms
+    is a concept in object oriented programming 
+    it enables a single interface to represent many forms or types
+    eg
+    class animal
+    {
+        void speak()
+        {
+            sop("animals make a sound")
+        }
+    } 
+    class dog extends animal
+    {
+       void speak()
+        {
+            sop("dog barks")
+        }
+    }
+    class cat extends animal
+    {
+       void speak()
+        {
+            sop("cat meow")
+        }
+    }
+    animal mydog = new dog()
+    mydog.speak()
+    animal mycat = new cat()
+    mycat.speak()
+    a base class animal have method speak().
+    derived classes dog,cat can override this method to produce different sound
+    demonstrate polymorphic behavior
+32. What is static chain
+    a static chain is used in block scoped programming lang to access global variables
+    it is chain of pointer stored in the subprogram    
+33. What is union 4-25
+    a union is a special data structure 
+    allows different data types stored in same memory location 
+    the size of union is depend by size of its largest no.
+    it is a special data type in available lang like c,c++.
+34. Describe the three string length options 4-9
+    static length- the length is fixed at compile time
+                   cannot change during execution   
+                   eg C(char a[20])
+    limited dynamic length - the string length vary during runtime
+                   up to a predefined maximum limit
+                   memory location is static but the used portion is dynamic
+                   eg pascal(versions),A
+    dynamic length-both the maximum size and current length change arbitararily
+                   during the execution
+                   eg std::string
+	AOS
+Q1.Short Questions.
+d) Explain Kill() function with syntax.
+   used to send a specific signal to a process or a group of process
+   syntax : #include<sys/types.h>
+	    #include<signal.h>
+	    int kill(pid_t pid,int sig);
+            pid=process group id
+            sig=integer value of the signal to send
+   the function returns 0 on success
+   -1 on error	
+a) Explain the syntax of open ( ) system call.
+   used to open or create a file in the system.read(),write(),close().
+   syntax : #include<sys/types.h>
+	    #include<sys/stat.h>
+            int open (const char *pathname,int flags) 
+            pathname= the path of the file to be opend or created
+e) What is Buffer cache?
+   a buffer cache / a disk buffer cache isa prtion of main memory (RAM) used
+   by the os to store copies of data blocks
+   goal-speed to input output request
+   when a program request data,the os checks the cache 
+f) Define nice() system call.
+   it is used to change the priority of a process  
+   high value from -20 to 19
+   19 lowest value
+   syntax - #include<unistd.h>
+	    it nice(int inc);
+            inc=priority value
+f) What is Process ID?	
+   is a unique integer number assigned by the os kerent to each process
+   the os uses pid to identify and manage process
+h) What is Sticky bit?                           
+   is an unix permission flag
+   when set on a directory,restrics file deletion within the directory                   	               
+• Explain swapping in detail
+->swapping is a memory management technique in an os 
+  temporaily moves an entire process from the main memory to
+  a secondary storage to free up RAM for other processes	     
+  the area on the secondary storage used for the swap space
+  two main steps
+  swap out :moving a process from main memory to the swap space 
+            ram is full
+  swap in  :moving a process back from swap space to main memory
+            so it can continue execution
+  swapping increases the degree of multiprogramming			            
+• explain the structure of regular file with diagram
+->inode-the inode is a data structure that stores all the metadata
+        about the file except its name and actual data
+        key info:
+        file type(regular directory)
+        permissions and ownership(user ID,group ID)
+        timestamps(creations,modification,last access)
+        size of the file in bytes
+        poniters(or block address)
+  data blocks- actual disk blocks
+       store the contents of the file
+       the inode points to this blocks 
+• What are common sections of process? 	  
+->text segments:this section contains the compiled machine code of the program
+         	it is read only mode
+  data segment :stores global and static variable
+                initialized data segment :
+                contains global and static variables that are initialized
+                eg.int x=5
+                uninitialized data segment :
+               	contains global and local variable that are decleared
+                but not initialized
+                eg.static int y
+  stack segment:storing local variables,manageing function calls
+                it follows the last in first out
+  heap segment :used for dynamic memory allocation during runtime
+                using functions like malloc,calloc,realloc	                      		
+• What is environment variable? List any two.	
+-> an environment variable is a dynamic named value 
+   they exist within the environment of a process
+   used to store info 	
+   list :
+   PATH:contains a colon separated list of directories
+   HOME:stores the path to the current users home directory		 
+• List the characteristics of Unix O.S					            
+->multiuser:it allows multiple users to access
+  multitasking:it can run multiple processes or programs concurrently
+  portability:easy to port to different hardware platforms
+  hierarchical file system:it uses a tree like hierarachical structure 
+  pipes and redirection:it provides powerful mechanisms 
+  security:user authentication       				                                            
+• Write a short note on buffer headers & buffer pool.			             	                                                                                                                   
+-> buffer pool:
+  a buffer pool is a region of main memory that
+  the kernel uses to temporaily store data
+  this acts cache improves I/O performance
+  when data is read from or written to disk 
+  it first goes into a buffer in the pool                
+  buffer header:
+  each buffer in the pool has an associated buffer header
+  data structure containing all the metadata 
+  to manage that specific buffer
+  the header links the buffer 	            	                        
+• Windows is portable operating system, Discuss.				 
+->windows was not designed with the portability
+  morden windows is a high degree of portability 
+• Explain four major data structures to support demand paging.				               
+-> page table
+   frame table
+   secondary memory data structure
+   page fault handling replacement data structure   	    
+• Explain kill() & raise() functions. 
+  raise()-used to send a signal to current process
+          raise a signal with in the program
+• Explain the system calls SIGSTOP  and  SIGTERM. 
+-> SIGSTOP:
+   this signal used to stop process execution
+   it is a powerful signal
+   SIGTERM:
+   used to request a process to terminate 
+• context of process
+  cpu registers
+  process ID(PID) and parent process ppid
+  memory management info
+  I/o status info
+  signal handling info
+• What is use of syncs,fsync,and fdata sync() functions.
+->sync()-all data buffered in memory to be written to the disk
+         it initiates the writes 
+  fsync(int fd)-all data and metadata associated with the fd
+  fdatasync(int fd)-synchronize the files data to the disk
+         it faster than fsync()         
+• State difference between fchown() and lchown() function. 
+->fchown()-fchown(int fd,uid_t owner,gid_t group)
+           it operates on the file that the fd
+           it opend via symbolic link
+           used to change the owner and group of file discriptor
+  lchown()-lchown(const char *path,uid_t owner,gid_t group)
+           used to change the owner and group specified by path
+           if specified path is a symbolic link,lchown() changes
+           the ownership of the symbolic link itself	                          
+• Explain alarm () & pause () Functions.   
+->alarm(),pause() functions are POSIX system calls 
+  used for handling time-based 
+  process pausing in UNIX systems
+  alarm(unsigned int sec):if seconds is 0,any pending alarm is cancelled
+                          by default SIGALRM terminates the process
+                          this function returns the number of seconds  
+  pause(void):suspend process execution
+• Explain fork() & vfork() system call  with example. 
+->fork()-creats a new process
+         both parent and child process execute concurrently
+  eg.    int main()
+         {
+            pid_t pid=fork();
+            if(pid==0)
+		printf("child process PID=%d,getpid());
+            else 
+                printf("parent process PID =%d,child PID))
+         } 
+  vfork()-creates a new child process
+          child process share the parent space  
+   eg.    int main()
+         {
+            pid_t pid=vfork();
+            if(pid==0)
+		printf("child process PID=%d,getpid());
+            else 
+                printf("parent process PID =%d,child PID))
+         }                 	                                                                                                                                                                                
+}
+• Explain the behavior of following C’ program.  				            
+		    main ()
+                               {
+                                   int fd,char buf [1024]; 
+                                    fd=create(“junk”,0666);
+			lseek(fd,2001,2);
+			write(fd,”hello”,5);
+                              close fd();
+                                   }	
+->create is likely creat()
+  0666 is the file pemission mode
+  the file "junk" is created with read/write permissions
+  behaviour:
+  a new file named "junk" is created with specified permission
+  the lseek() moves the end of the file
+  the file "junk" have a total size =2001+5=2006 bytes 
+1 what is signal? state the features of signal
+-> is a notification sent to a process to notify it of an event or exception
+   features
+   asynchronous notification
+   inter process communication
+   predefined types
+   limited info transfer
+3 list the properties of Linux operating system
+-> Linux is an open source os
+   multi-user
+   multitasking
+   security
+   portability
+8 explain first scenario of buffer pool
+-> is a cache of frequently accessed data in memory  
+9 under which circumstances the process is swapped out
+-> a process is swapped out when it is moved from main memory to 
+   secondary storage to free up memory for other processes
+12 explain malloc(),calloc(),realloc() and free() functions
+-> memory management functions
+   malloc() - memory allocation
+              allocates a block of memory of a specified size
+	      syntax:void malloc(size_t,size)
+   calloc() - continuous allocation
+              allocates an array of memory blocks all initialized to zero 
+              syntax:void calloc(size_t n,size_t size)
+   realloc() -reallocation
+              resizes a block of memory previously allocated using malloc() or calloc()
+              void realloc(void ptr,sze_t size)
+   free() -   releases a block of memory back to the system
+              void free(void *ptr)
+14 write fields of Inode
+-> file type and permissions
+   file owners user ID and group ID
+   file size
+   creations,modification,access
+   direct,indirect,doubly indirect
+15 explain three levels of UNIX operating system
+-> kernel - the core of the os,responsible for managing hardware resources
+            acts as an interface between the hardware the user program
+            it manage memory location,processes,file systems,i/o device
+   system calls - interfaces between user level programs and the kernel
+   user level programs - applications and utilities that run on top of the kernel
+   hardware layer : it is at the bottom,and the kerenel interacts with it directly
+                    containing CPU,memory(RAM),hard disks
+18 explain following system calls
+-> memory functions 
+   I)Memset() - sets a block of memory to a specified value 
+                void memset(void ptr,int value,size_t num)
+   II)Memchr() - searches for the first occurrences of a character in a block of memory
+                void memchr(void ptr,int value,size_t num)
+   III)Memcmp() - compares two blocks of memory
+                void memcmp(void ptr,int value,size_t num)
+   IV)Memmove() - moves a block of memory from one location to another
+                void memmove(void ptr,int value,size_t num)
+19 explain different types of memory regions found in every process
+-> text segment - contains the programs executable code
+   data segment - contains initialized global and static variables
+   BSS segment - contains unitialized global and static variables
+   Heap - a dynamic memory allocation area
+   stack - a region for storing function call frames and local variables
+20 what is internal and external fragmentation
+-> internal - wasted space within a block of memory due to alignment requirements
+   external - wasted space between blocks ofmemory due to non contiguous allocation
+21 explain the behaviour of following C program
+	#include<signal.h>
+	main(intargc char *argv[])
+	{
+		charbuf[256];if(argc!=1)
+		signal(.SIGCLD,SIG-IGN);
+		while(read(0,buf,256));if(fork()==0)
+		exit(0);
+
+-> the program ignores the SIGCHLD signal which is sent when a child process terminates
+   this allows the parent process to continue running without waiting for child process to finish
+22 explain read(),write(),readv(),writev() with syntax and example
+-> file operations
+   read() - reads data from a file descriptor
+            syntax: read(int fd,void buffer)
+            eg int main()
+               char b[10]
+               int fd=open("test.txt");
+               if(fd!=-1){
+               b_read=read(fd,b)
+               print("read=%s",b_read)}
+   write() - writes data to a file descriptor 
+            syntax: write(int fd,void buffer)
+            eg int main()
+               char b[10]="hello"
+               int fd=open("test.txt");
+               if(fd!=-1){
+               b_read=write(fd,b)
+               print("read=%s",b_read)}
+   readv() - reads data from a file descriptor into multiple buffers
+            syntax: readv(int fd,void buffer)
+            eg
+   writev() - writes data from multiple buffers to a file descriptor
+            syntax: writev(int fd,void buffer)
+            eg
+23 explain different types of files with respect to Linux operating system
+-> regular files - files containing data or executable code
+   directories - files that contain other files or directories
+   devcice files- special files that represent hardware devices
+   symbolic links - files that point to other files or directories
+11 justify the following :No process can pre-empt another executing in kernel
+• Write a ‘C’ program to illustrating seek() system call.    
+• Write a ‘C’ program to Print all environment variables.  	
+• Write a ’C’ program to illustrate use of time system call.	
+• Write a ‘C’ program to find weather a given File is present in Current Directory		                           
+• Write a ‘program that copies its standard input to standard output.	            
+   #include<stdio.h>
+   int main()
+   {
+	int c;
+        while((c=getchar())!EOF)
+        {
+		putchar(c)
+        }
+   }    
+• Explain the behavior of following C’ program.  				            
+		char str1[]=”Linux”; 
+                           Main ()
+                              {
+                                   int fd[2];
+	                   char str 2[10];
+                                  pipe(fd);
+			if(fork()= =0)
+			 write(fd[1],str1,5)
+				else
+	read(fd[0],str2,5);
+->                                
+• List the different memory allocation functions.				 
+		RM
+
+3 write a note on context analysis
+-> is a reserch method that involves analysing text or other data 
+   to identify patterns and themes
+   is a research methodology that involves analysing the social
+   ,culture , and environmental context in which a phenomenon occurs 
+4 what do you mean by secondary data 
+-> is data collected by someone else often for a different purpose 
+   such as existing literature,government statistics or database
+5 what is factor analysis
+-> is a statistical technique used to identify underlying factors or 
+   patterns in a dataset
+6 what do you maen by operation reserch
+-> is the application of scientific methods and techniques 
+   to optimize business processes and solve complex problems
+8 distinguish between primary and secondary data in data collection
+-> primary - is original data collected by the researcher themselves
+             collection of surveys,experiments,observations
+             more expensive
+   secondary - is data collected by someone else
+             collection of reports,database
+             less expensive
+10 explain importance of T-test
+-> t test - is a statistical test used to compare the 
+            means of two groups 
+   imp - t test are widely used in research to compare the 
+         effects of different treatments 
+12 explain scope of reserch in securities studies
+-> the scope of research in securities studies includes analysing financial markets ,instruments and institutions
+13 explain in detail ANOVA statistical method with example 
+-> ANOVA (analysis of variance) is a statistical technique used to 
+   compare the means of three or more groups
+   it generalizes the t-test which is used for comparing only two groups
+   ANOVA is divide the total variability in a dataset into different sources
+   between group variance
+   withing group variance
+   if the variation between groups is larger than the variation within groups
+   hypothesis
+   null hypo,alternative hypo in detail
+   eg a crop researcher wants to compare the mean crop yields 
+      of 3 different fertilizer mixtures (A,B,C)
+      independent variable:type of fertilizer
+                           levels:A,B,C
+      dependent variable : crop yield
+   eg.anova can be used to compare the average returns of different investment portfolios
+14 define case study and indicate its characteristics
+-> a case study is an in depth analysis of a single case or a small number of cases
+   the case study can be an indivisual,a group,an event
+   case study are used in social,educational
+   characteristics
+   detailed analysis
+   contextual understanding 
+   qualitiative and quantitative data
+   real world context
+   multiple data source
+15 what are the essential steps involved in qualitative research
+-> is a research approach that focuses on gathering and analysing non numearical data
+   essential steps 
+   select a problem
+   review the literature
+   design the case study and select method
+   identifying a research question
+   collecting data
+   analysing data 
+   report result
+   drawing conclusions
+16 explain purpose of reserch report
+-> is to communicate the findings and conclusions of a research study to others
+   to communicate with the details,findings,analysis,conclusinos
+   serves as a permanent record
+   allowing others to understand the basis of conclusion
+   informed decisions
+   contribute to knowledge
+   evaluate the researcher
+17 explain multivariate analysis technique with example
+-> is a statistical technique used to analyse multiple 
+   variables simultaneously.
+   analyse relationship between many vriables
+   (both independent,independent).
+   it helps researchers understand real world problem
+   common technique to include:
+   MANOVA(multivariate analysis of variance):
+   compares the means of multiple groups across multiple 
+   dependent variables simultaneously.
+   Multiple regression:
+   examines how multiple independent variables 
+   predict a single dependent variable.
+   factor analysis:
+   used to reduce a large number of variables into 
+   a smaller set of underlying factor.
+   eg.multivariate analysis can be used to analyse the relationship
+   between stock prices and various economic indicators. 
+18 what are the principals and characteristics of qualitative data analysis
+-> involves analysing non numerical data such as text or images.
+   it is the process of collecting,analyzing non numerical data 
+   such as text,imgs,audio to find meanings.
+   characteristics:
+   iterative 
+   subjective interpretation
+   unstructural raw data
+   focus on meaning and context
+   principles:
+   transparency
+   data triangulation
+   researcher reflexive process
+   context sensitivity
+   use of coding and theme identification
+21 what is mean by tabulation of data. what are the principals to 
+   be kept in mind while tabulating data?
+-> tabulation of data involves organizing and presenting data in a clear manner
+   it is the process of organzing raw data into a structured and systematic format
+   typically rowsand colms.
+   principles
+   clarity and simplicity:
+   the table should be easy to understand
+   clear heading and titles:
+   logical arrangement
+   proper footnotes and sources
+   appropriate measurement
+   manageable size
+   accuracy
+   consistency
+22 what is standard derivation ? what are its merits and demerits?
+-> sd is a measure of the  dispersion of a set of data.
+   it is the average amount by which each data point in a set differs 
+   from the mean of that set
+   mertis 
+   provides a clear measure of variability
+   useful for comparing data sets
+   stable and reliable
+   basis of analysis
+   useful for normal distribution
+   demerits
+   sensitive to outilers
+   can be affected by skewness
+   complex calulations
+   assumes data
+23 what do you mean by survey analysis ? what are the principles of survey research?
+-> it involves analysing data collected through surveys or questionnaries
+   it is the process of examining data collected from a survey
+   used a set of questions to gather info  from a specific group of people
+   it involves qualitative ,quantitative info
+   principles
+   clear objetives
+   appropriate sampling 
+   well designed questionnaire
+   validity and reliability
+   systematic data collection
+   appropriate analysis
+   clear and concise questions
+   representative sample
+   accurate data analysis
+   objective reporting
+24 calculate the mean,median and mode for the following data class frequency
+	-----------------
+	0-10      10
+	10-20	  11
+	20-30     18
+	30-40     26
+	40-50     22
+        50-60     08
+        60-70     05
+	_________________
+		  100
+
